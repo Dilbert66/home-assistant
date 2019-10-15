@@ -557,7 +557,7 @@ async def test_media_player(hass):
         "media_player#test",
         "media_player.volume_up",
         hass,
-        payload={"volumeSteps": 20, "volumeStepsDefault": False},
+        payload={"volumeSteps": 20, "volumeStepsDefault": "True"},
     )
 
     call, _ = await assert_request_calls_service(
@@ -566,7 +566,7 @@ async def test_media_player(hass):
         "media_player#test",
         "media_player.volume_down",
         hass,
-        payload={"volumeSteps": -20, "volumeStepsDefault": False},
+        payload={"volumeSteps": -20, "volumeStepsDefault": "False"},
     )
 
     call, _ = await assert_request_calls_service(
@@ -575,7 +575,7 @@ async def test_media_player(hass):
         "media_player#test",
         "media_player.volume_up",
         hass,
-        payload={"volumeSteps": 10, "volumeStepsDefault": True},
+        payload={"volumeSteps": 10, "volumeStepsDefault": "True"},
     )
     call, _ = await assert_request_calls_service(
         "Alexa.ChannelController",
